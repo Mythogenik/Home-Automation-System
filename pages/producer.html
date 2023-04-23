@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Producer Page
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.7" rel="stylesheet" />
+
+  <style>.switch_button {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch_button input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: greenyellow;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }</style>
+
+</head>
+
+<body class="g-sidenav-show  bg-gray-100">
+  
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Today's Weather</p>
+                    <h5 class="font-weight-bolder mb-0">
+                      35°C Sunny
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Water clock</p>
+                    <h5 class="font-weight-bolder mb-0">
+                       15.751 litres 
+                      <span class="text-success text-sm font-weight-bolder">+5%</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Current Electric Credits</p>
+                    <h5 class="font-weight-bolder mb-0">
+                      12.170 kW
+                      <span class="text-danger text-sm font-weight-bolder">-7%</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-3 col-sm-6">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="numbers">
+                    <p class="text-sm mb-0 text-capitalize font-weight-bold">Gas</p>
+                    <h5 class="font-weight-bolder mb-0">
+                      0.060 $/kwh
+                      <span class="text-success text-sm font-weight-bolder">+3%</span>
+                    </h5>
+                  </div>
+                </div>
+                <div class="col-4 text-end">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col-lg-3 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h6></h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1">Switches</span>
+                  </p>
+                </div>
+                <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Light Options</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Kitchen Lights</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="kitchenlight">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Living Room Lights</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="livingroomlight">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Corridor Lights</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="corridorlight">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bathroom Lights</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bathroomlight">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bedroom Lights</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bedroomlight">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Balcony Lights</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="balconylight">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h6></h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1">Switches</span>
+                  </p>
+                </div>
+                <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">AC Options</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Kitchen AC</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="kitchenac">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Living Room AC</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="livingroomac">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Corridor AC</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="corridorac">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bathroom AC</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bathroomac">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bedroom AC</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bedroomac">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Balcony AC</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="balconyac">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h6></h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1">Switches</span>
+                  </p>
+                </div>
+                <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Radio Options</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Kitchen Radio</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="kitchenradio">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Living Room Radio</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="livingroomradio">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Corridor Radio</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="corridorradio">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bathroom Radio</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bathroomradio">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bedroom Radio</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bedroomradio">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Balcony Radio</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="balconyradio">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td> 
+                      </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-md-0 mb-4">
+          <div class="card">
+            <div class="card-header pb-0">
+              <div class="row">
+                <div class="col-lg-6 col-7">
+                  <h6></h6>
+                  <p class="text-sm mb-0">
+                    <i class="fa fa-check text-info" aria-hidden="true"></i>
+                    <span class="font-weight-bold ms-1">Switches</span>
+                  </p>
+                </div>
+                <div class="col-lg-6 col-5 my-auto text-end">
+                  <div class="dropdown float-lg-end pe-4">
+                    <a class="cursor-pointer" id="dropdownTable" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="fa fa-ellipsis-v text-secondary"></i>
+                    </a>
+                    <ul class="dropdown-menu px-2 py-3 ms-sm-n4 ms-n5" aria-labelledby="dropdownTable">
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
+                      <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive">
+                <table class="table align-items-center mb-0">
+                  <thead>
+                    <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">LED Options</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Kitchen LED</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="kitchenled">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td>                      
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Living Room LED</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="livingroomled">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Corridor LED</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="corridorled">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td>  
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bathroom LED</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bathroomled">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Bedroom LED</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="bedroomled">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="d-flex px-2 py-1">                         
+                            <h6 class="mb-0 text-sm">Balcony LED</h6> 
+                            &nbsp
+                            &nbsp
+                            <label class="switch_button">
+                              <input type="checkbox" id="balconyled">
+                              <span class="slider"></span>
+                          </label>                     
+                        </div>
+                      </td>  
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row my-4">
+        <div class="col-lg-7 mb-lg-0 mb-4">
+          <div class="card">
+            <div class="card-body p-3">
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="d-flex flex-column h-100">
+                    <p class="mb-1 pt-2 text-bold">Built by Gökhan Şendaş and Hüseyin Orhan</p>
+                    <h5 class="font-weight-bolder">Home Automation System</h5>
+                    <p class="mb-5">From colors, cards, typography to complex elements, you will find the full documentation.</p>
+                    <a class="text-body text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                      Read More
+                      <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                  <div class="bg-gradient-primary border-radius-lg h-100">
+                    <img src="../assets/img/shapes/waves-white.svg" class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
+                    <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                      <img class="w-100 position-relative z-index-2 pt-4" src="../assets/img/picpicpic.jpeg" alt="us" style="margin-bottom: 6.5%;">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card h-100 p-3">
+            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100" style="background-image: url('../assets/img/ivancik.jpg');">
+              <span class="mask bg-gradient-dark"></span>
+              <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                <h5 class="text-white font-weight-bolder mb-4 pt-2">Work with us</h5>
+                <p class="text-white">We believe that one can develop in every age and stage, so lets combine our knowledge and work together.</p>
+                <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                  Read More
+                  <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <footer class="footer pt-3  ">
+        <div class="container-fluid">
+          <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6 mb-lg-0 mb-4">
+              <div class="copyright text-center text-sm text-muted text-lg-start">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script>,
+                made with <i class="fa fa-heart"></i> by
+                <a href="" class="font-weight-bold" target="_blank">Gökhan and Hüseyin.</a>
+          
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                
+                <li class="nav-item">
+                  <a href="" class="nav-link text-muted" target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link text-muted" target="_blank">Our Policy</a>
+                </li>
+                <li class="nav-item">
+                  <a href="" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+  <div class="fixed-plugin">
+
+    <div class="card shadow-lg ">
+      <div class="card-header pb-0 pt-3 ">
+        <div class="float-start">
+          <h5 class="mt-3 mb-0"></h5>
+          <p>See our dashboard options.</p>
+        </div>
+        <div class="float-end mt-4">
+          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+        <!-- End Toggle Button -->
+      </div>
+      <hr class="horizontal dark my-1">
+      <div class="card-body pt-sm-3 pt-0">
+        <!-- Sidebar Backgrounds -->
+        <div>
+          <h6 class="mb-0">Sidebar Colors</h6>
+        </div>
+        <a href="javascript:void(0)" class="switch-trigger background-color">
+          <div class="badge-colors my-2 text-start">
+            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+          </div>
+        </a>
+        <!-- Sidenav Type -->
+        <div class="mt-3">
+          <h6 class="mb-0">Sidenav Type</h6>
+          <p class="text-sm">Choose between 2 different sidenav types.</p>
+        </div>
+        <div class="d-flex">
+          <button class="btn bg-gradient-primary w-100 px-3 mb-2 active" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
+          <button class="btn bg-gradient-primary w-100 px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+        </div>
+        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+        <!-- Navbar Fixed -->
+        <div class="mt-3">
+          <h6 class="mb-0">Navbar Fixed</h6>
+        </div>
+        <div class="form-check form-switch ps-0">
+          <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+        </div>
+        <hr class="horizontal dark my-sm-4">
+        <a class="btn bg-gradient-dark w-100" href="">Free Download</a>
+        <a class="btn btn-outline-dark w-100" href="">View documentation</a>
+        <div class="w-100 text-center">
+          <a class="github-button" href="" data-icon="octicon-star" data-size="large" data-show-count="true" >Star</a>
+          <h6 class="mt-3">Thank you for sharing!</h6>
+          <a href="" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-twitter me-1" aria-hidden="true"></i> Tweet
+          </a>
+          <a href="" class="btn btn-dark mb-0 me-2" target="_blank">
+            <i class="fab fa-facebook-square me-1" aria-hidden="true"></i> Share
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+  <script>
+    var ctx = document.getElementById("chart-bars").getContext("2d");
+
+    new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+          label: "Sales",
+          tension: 0.4,
+          borderWidth: 0,
+          borderRadius: 4,
+          borderSkipped: false,
+          backgroundColor: "#fff",
+          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+          maxBarThickness: 6
+        }, ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+            },
+            ticks: {
+              suggestedMin: 0,
+              suggestedMax: 500,
+              beginAtZero: true,
+              padding: 15,
+              font: {
+                size: 14,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+              color: "#fff"
+            },
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false
+            },
+            ticks: {
+              display: false
+            },
+          },
+        },
+      },
+    });
+
+
+    var ctx2 = document.getElementById("chart-line").getContext("2d");
+
+    var gradientStroke1 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke1.addColorStop(1, 'rgba(203,12,159,0.2)');
+    gradientStroke1.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke1.addColorStop(0, 'rgba(203,12,159,0)'); //purple colors
+
+    var gradientStroke2 = ctx2.createLinearGradient(0, 230, 0, 50);
+
+    gradientStroke2.addColorStop(1, 'rgba(20,23,39,0.2)');
+    gradientStroke2.addColorStop(0.2, 'rgba(72,72,176,0.0)');
+    gradientStroke2.addColorStop(0, 'rgba(20,23,39,0)'); //purple colors
+
+    new Chart(ctx2, {
+      type: "line",
+      data: {
+        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        datasets: [{
+            label: "Mobile apps",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#cb0c9f",
+            borderWidth: 3,
+            backgroundColor: gradientStroke1,
+            fill: true,
+            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+            maxBarThickness: 6
+
+          },
+          {
+            label: "Websites",
+            tension: 0.4,
+            borderWidth: 0,
+            pointRadius: 0,
+            borderColor: "#3A416F",
+            borderWidth: 3,
+            backgroundColor: gradientStroke2,
+            fill: true,
+            data: [30, 90, 40, 140, 290, 290, 340, 230, 400],
+            maxBarThickness: 6
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false,
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index',
+        },
+        scales: {
+          y: {
+            grid: {
+              drawBorder: false,
+              display: true,
+              drawOnChartArea: true,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              padding: 10,
+              color: '#b2b9bf',
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+          x: {
+            grid: {
+              drawBorder: false,
+              display: false,
+              drawOnChartArea: false,
+              drawTicks: false,
+              borderDash: [5, 5]
+            },
+            ticks: {
+              display: true,
+              color: '#b2b9bf',
+              padding: 20,
+              font: {
+                size: 11,
+                family: "Open Sans",
+                style: 'normal',
+                lineHeight: 2
+              },
+            }
+          },
+        },
+      },
+    });
+  </script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Home Automation System: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/dashboard.min.js?v=1.0.7"></script>
+
+
+  <script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', (event) => {
+        const key = event.target.id;
+        const value = event.target.checked;
+        localStorage.setItem(key, value);
+      });
+    });
+  </script>
+
+<script>
+  const strings = [
+  "kitchenac",
+  "livingroomac",
+  "bedroomac",
+  "bathroomac",
+  "balconylight",
+  "corridorac",
+  "kitchenlight",
+  "livingroomlight",
+  "bedroomlight",
+  "bathroomlight",
+  "balconyac",
+  "corridorlight",
+  "kitchenradio",
+  "livingroomradio",
+  "corridorradio",
+  "bathroomradio",
+  "bedroomradio",
+  "balconyradio",
+  "kitchenled",
+  "livingroomled",
+  "corridorled",
+  "bathroomled",
+  "bedroomled",
+  "balconyled"
+];
+  strings.forEach(function(element) {
+    const valueFromLocalStorage = localStorage.getItem(element);
+    const str = "#" + element;
+    const checkbox = document.querySelector(str);
+    checkbox.checked = valueFromLocalStorage === 'true';
+  });
+</script>
+
+
+</body>
+
+</html>

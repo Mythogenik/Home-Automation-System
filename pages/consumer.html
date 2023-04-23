@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    Consumer Page
+  </title>
+  <!--     Fonts and icons     -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/dashboard.css?v=1.0.7" rel="stylesheet" />
+
+  <style>
+    .switch_button {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+
+    /* Hide default HTML checkbox */
+    .switch_button input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    /* The slider */
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: black;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked+.slider {
+      background-color: greenyellow;
+    }
+
+    input:focus+.slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked+.slider:before {
+      -webkit-transform: translateX(26px);
+      -ms-transform: translateX(26px);
+      transform: translateX(26px);
+    }
+
+    /* Rounded sliders */
+    .slider.round {
+      border-radius: 34px;
+    }
+
+    .slider.round:before {
+      border-radius: 50%;
+    }
+  </style>
+
+</head>
+
+<body class="g-sidenav-show  bg-gray-100 virtual-reality">
+  <div class="border-radius-xl mt-3 mx-3 position-relative"
+    style="min-height: 900px; background-image: url('../assets/img/vr-bg.jpg') ; background-size: cover;">
+    <main class="main-content mt-1 border-radius-lg">
+      <div class="section min-vh-85 position-relative transform-scale-0 transform-scale-md-7" style="margin-left: 14%;">
+        <div class="container">
+          <div class="row pt-10">
+            <div class="col-lg-8 col-md-11">
+              <div class="d-flex">
+                <div class="me-auto">
+                  <h1 class="display-1 font-weight-bold mt-n4 mb-0">35°C</h1>
+                  <h6 class="text-uppercase mb-0 ms-1">Sunny</h6>
+                </div>
+                <div class="ms-auto">
+                  <img class="w-50 float-end mt-lg-n4" src="../assets/img/small-logos/icon-sun-cloud.png"
+                    alt="image sun">
+                </div>
+              </div>
+              <div class="row mt-4">
+                <div class="col-lg-4 col-md-4">
+                  <div class="card move-on-hover overflow-hidden">
+                    <div class="card-body">
+                      <div class="d-flex">
+                        <h6 class="mb-0 me-3">25°C</h6>
+                        <h6 class="mb-0">Kitchen
+                        </h6>
+                      </div>
+                      <hr class="horizontal dark">
+                      <div class="d-flex">
+                        <h6 class="mb-0 me-3">24°C</h6>
+                        <h6 class="mb-0">Living Room <br />
+                        </h6>
+                      </div>
+                      <hr class="horizontal dark">
+                      <div class="d-flex">
+                        <h6 class="mb-0 me-3">26°C</h6>
+                        <h6 class="mb-0">Bedroom<br />
+                        </h6>
+                      </div>
+                      <hr class="horizontal dark">
+                      <div class="d-flex">
+                        <h6 class="mb-0 me-3">22°C</h6>
+                        <h6 class="mb-0">BathroomC<br />
+                        </h6>
+                      </div>
+                      <hr class="horizontal dark">
+                      <div class="d-flex">
+                        <h6 class="mb-0 me-3">24°C</h6>
+                        <h6 class="mb-0">Balcony<br />
+                        </h6>
+                      </div>
+                    </div>
+                    <a href="javascript:;" class="bg-gray-100 w-100 text-center py-1" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Show More">
+                      <i class="fas fa-chevron-down text-primary"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
+                  <div class="card bg-gradient-dark move-on-hover">
+                    <div class="card-body">
+                      <div class="d-flex">
+                        <h5 class="mb-0 text-white">Kitchen Light</h5>
+                        <div class="ms-auto">
+                          <label class="switch_button">
+                            <input type="checkbox" id="kitchenlight">
+                            <span class="slider"></span>
+                          </label>
+
+                        </div>
+                      </div>
+                      <div class="d-flex">
+                        <h5 class="mb-0 text-white">LR Light</h5>
+                        <div class="ms-auto">
+                          <label class="switch_button">
+                            <input type="checkbox" id="livingroomlight">
+                            <span class="slider"></span>
+                          </label>
+
+                        </div>
+                      </div>
+                      <div class="d-flex">
+                        <h5 class="mb-0 text-white">Bathroom Light</h5>
+                        <div class="ms-auto">
+                          <label class="switch_button">
+                            <input type="checkbox" id="bathroomlight">
+                            <span class="slider"></span>
+                          </label>
+
+                        </div>
+                      </div>
+                      <div class="d-flex">
+                        <h5 class="mb-0 text-white">Bedroom Light</h5>
+                        <div class="ms-auto">
+                          <label class="switch_button">
+                            <input type="checkbox" id="bedroomlight">
+                            <span class="slider"></span>
+                          </label>
+
+                        </div>
+                      </div>
+                      <div class="d-flex">
+                        <h5 class="mb-0 text-white">Balcony Light</h5>
+                        <div class="ms-auto">
+                          <label class="switch_button">
+                            <input type="checkbox" id="balconylight">
+                            <span class="slider"></span>
+                          </label>
+
+                        </div>
+                      </div>
+                    </div>
+                    <a href="javascript:;" class="w-100 text-center py-1" data-bs-toggle="tooltip"
+                      data-bs-placement="top" title="Show More">
+                      <i class="fas fa-chevron-down text-white"></i>
+                    </a>
+                  </div>
+                  <div class="card move-on-hover mt-4">
+                  </div>
+                </div>
+                <div class="col-lg-4 col-md-4 mt-4 mt-sm-0">
+                  <div class="card card-background card-background-mask-primary move-on-hover align-items-start">
+                    <div class="cursor-pointer">
+                      <div class="full-background"
+                        style="background-image: url('../assets/img/curved-images/curved1.jpg')"></div>
+                      <div class="card-body">
+                        <h5 class="text-white mb-0" id="song">Gimme! Gimme! Gimme! (A Man After Midnight)</h5>
+                        <p class="text-white text-sm" id="kriter">ABBA</p>
+                        <div class="d-flex mt-5">
+                          <button class="btn btn-outline-white rounded-circle p-2 mb-0"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="Prev" onclick="changeText()">
+                            <i class="fas fa-backward p-2"></i>
+                          </button>
+                          <button class="btn btn-outline-white rounded-circle p-2 mx-2 mb-0" type="button"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="Pause">
+                            <i class="fas fa-play p-2"></i>
+                          </button>
+                          <button class="btn btn-outline-white rounded-circle p-2 mb-0" type="button" onclick="changeTextt()"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="Next">
+                            <i class="fas fa-forward p-2"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="footer pt-3  ">
+    <div class="container-fluid">
+      <div class="row align-items-center justify-content-lg-between">
+        <div class="col-lg-6 mb-lg-0 mb-4">
+          <div class="copyright text-center text-sm text-muted text-lg-start">
+            ©
+            <script>
+              document.write(new Date().getFullYear())
+            </script>,
+            made with <i class="fa fa-heart"></i> by
+            <a href="" class="font-weight-bold" target="_blank">Gökhan and Hüseyin.</a>
+
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+            <li class="nav-item">
+              <a href="" class="nav-link text-muted" target="_blank">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link text-muted" target="_blank">Our Policy</a>
+            </li>
+            <li class="nav-item">
+              <a href="" class="nav-link pe-0 text-muted" target="_blank">License</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for HAS: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/dashboard.min.js?v=1.0.7"></script>
+
+  <script>
+    const strings = [
+      "kitchenlight",
+      "livingroomlight",
+      "bedroomlight",
+      "bathroomlight",
+      "balconylight"
+    ];
+    strings.forEach(function (element) {
+      const valueFromLocalStorage = localStorage.getItem(element);
+      const str = "#" + element;
+      const checkbox = document.querySelector(str);
+      checkbox.checked = valueFromLocalStorage === 'true';
+    });
+  </script>
+
+  <script>
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach((checkbox) => {
+      checkbox.addEventListener('change', (event) => {
+        const key = event.target.id;
+        const value = event.target.checked;
+        localStorage.setItem(key, value);
+      });
+    });
+  </script>
+
+
+  <script>
+    
+  </script>
+
+  <script>
+    const music = ["Give It To Me (Remix)" , "After Dark" , "Losing My Religion" , "Around the World (La La La La La)"];
+    const writer =["Muppet DJ" , "Mr Kitty" , "R.E.M" , "Planet Pop"]
+     intik = 0;
+     function changeText() {
+        const paragraph = document.getElementById("kriter");
+        const myHeading = document.getElementById("song");
+        myHeading.innerHTML = music[0];
+        paragraph.textContent = writer[0];
+        intik = intik + 1;
+      }
+      function changeTextt() {
+        const paragraph = document.getElementById("kriter");
+        const myHeading = document.getElementById("song");
+        myHeading.innerHTML = music[1];
+        paragraph.textContent = writer[1];
+        intik = intik + 1;
+      }
+  </script>
+
+</body>
+
+</html>

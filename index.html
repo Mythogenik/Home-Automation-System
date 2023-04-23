@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+  
+  <script>
+    function randomBoolean() {
+      return Math.random() < 0.5;
+    }
+    let randomNumber = Math.floor(Math.random() * 19) + 19;
+
+
+    
+    localStorage.setItem("degree", "32");
+
+
+    localStorage.setItem("kitchenac", randomBoolean());
+    localStorage.setItem("livingroomac", randomBoolean());
+    localStorage.setItem("bedroomac", randomBoolean());
+    localStorage.setItem("bathroomac", randomBoolean());
+    localStorage.setItem("balconyac", randomBoolean());
+    localStorage.setItem("corridorac", randomBoolean());
+
+    localStorage.setItem("kitchenlight", randomBoolean());
+    localStorage.setItem("livingroomlight", randomBoolean());
+    localStorage.setItem("bedroomlight", randomBoolean());
+    localStorage.setItem("bathroomlight", randomBoolean());
+    localStorage.setItem("balconylight", randomBoolean());
+    localStorage.setItem("corridorlight", randomBoolean());
+
+    localStorage.setItem("kitchenradio", randomBoolean());
+    localStorage.setItem("livingroomradio", randomBoolean());
+    localStorage.setItem("corridorradio", randomBoolean());
+    localStorage.setItem("bathroomradio", randomBoolean());
+    localStorage.setItem("bedroomradio", randomBoolean());
+    localStorage.setItem("balconyradio", randomBoolean());
+
+    localStorage.setItem("kitchenled", randomBoolean());
+    localStorage.setItem("livingroomled", randomBoolean());
+    localStorage.setItem("corridorled", randomBoolean());
+    localStorage.setItem("bathroomled", randomBoolean());
+    localStorage.setItem("bedroomled", randomBoolean());
+    localStorage.setItem("balconyled", randomBoolean());
+
+
+
+
+
+
+    window.location.replace("pages/sign-in.html");
+  </script>
+</body>
+
+</html>
